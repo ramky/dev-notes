@@ -14,6 +14,7 @@ gem 'elasticsearch-rails'
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
+gem 'time_ago_in_words' 
 
 group :development, :test do
   gem 'pry-byebug'

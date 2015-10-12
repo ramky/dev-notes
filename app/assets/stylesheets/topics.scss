@@ -1,3 +1,16 @@
 // Place all the styles related to the Topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul.inline > li, ol.inline > li {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+ul.topic:nth-child(even) { background-color: #F2F2F2;  }
+ul.topic:nth-child(odd) { background-color: #C1E3FD;  }
+
+.topic_name{
+  width: 400px;
+}

@@ -2,28 +2,21 @@
 
 <h1>Listing Topics</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @topics.each do |topic| %>
-      <tr>
-        <td><%= topic.name %></td>
-        <td><%= topic.description %></td>
-        <td><%= link_to 'Show', topic %></td>
-        <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
-        <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @topics.each do |topic| %>
+  <ul class="topic inline">
+    <li class="topic_name"><%= link_to topic.name, topic %></li>
+    <li>
+      <%= link_to edit_topic_path(topic), title: 'Edit Topic' do %>
+        <i class="fa fa-pencil-square-o"></i>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to topic, method: :delete, data: { confirm: 'Are you sure?' }, title: 'Delete Topic' do %>
+        <i class="fa fa-trash-o"></i>
+      <% end %>
+    </li>
+  </ul>
+<% end %>
 
 <br>
 

@@ -1,19 +1,8 @@
-<p id="notice"><%= notice %></p>
+<h1 class="heading"><%= @note.title %></h1>
+<div class="jumbotron masthead">
+  <p>
+    <%= markdown(@note.text) %>
+  </p>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @note.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @note.description %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @note.text %>
-</p>
-
-<%= link_to 'Edit', edit_note_path(@note) %> |
-<%= link_to 'Back', notes_path %>
+<%= render 'shared/notes_footer' %>

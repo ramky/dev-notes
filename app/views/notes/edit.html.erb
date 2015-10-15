@@ -1,6 +1,5 @@
-<h1>Editing Note</h1>
+<h1 class="heading">Editing Note</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', topic_note_path(@topic, @note) %> |
-<%= link_to 'Back', topic_notes_path(@topic) %>
+<%= render 'shared/notes_footer' %>

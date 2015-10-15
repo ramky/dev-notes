@@ -2,14 +2,12 @@ class NotesController < ApplicationController
   before_action :set_topic_note, only: [:show, :edit, :update, :destroy]
 
   # GET /notes
-  # GET /notes.json
   def index
     set_topic
     @notes = @topic.notes
   end
 
   # GET /notes/1
-  # GET /notes/1.json
   def show
   end
 
@@ -24,43 +22,35 @@ class NotesController < ApplicationController
   end
 
   # POST /notes
-  # POST /notes.json
   def create
     set_topic
     @note = @topic.notes.build(note_params)
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to topic_notes_path(@topic), notice: 'Note was successfully created.' }
-        format.json { render :show, status: :created, location: topic_notes_path(@topic) }
+        format.html { redirect_to edit_topic_path(@topic), notice: 'Note was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /notes/1
-  # PATCH/PUT /notes/1.json
   def update
     respond_to do |format|
       if @note.update(note_params)
-        format.html { redirect_to topic_notes_path(@topic), notice: 'Note was successfully updated.' }
-        format.json { render :show, status: :ok, location: topic_notes_path(@topic) }
+        format.html { redirect_to edit_topic_path(@topic), notice: 'Note was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /notes/1
-  # DELETE /notes/1.json
   def destroy
     @note.destroy
     respond_to do |format|
-      format.html { redirect_to topic_notes_path(@topic), notice: 'Note was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to edit_topic_path(@topic), notice: 'Note was successfully destroyed.' }
     end
   end
 

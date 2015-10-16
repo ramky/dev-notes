@@ -3,6 +3,7 @@ class CreateNotes < ActiveRecord::Migration
     create_table :notes do |t|
       t.string :title
       t.text :text
+      t.string :encrypted_text
       t.integer :type_id
       t.integer :topic_id
 

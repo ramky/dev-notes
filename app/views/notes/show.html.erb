@@ -2,6 +2,10 @@
 <div class="jumbotron masthead">
   <p>
     <%= markdown(@note.text) %>
+    <% if @note.password? %>
+      <input type="hidden" id="input-to-copy" value="<%= @note.decrypted_text %>" />
+      <%= link_to 'Copy to Clipboard', '#', onClick: "copyToClipboard()", id: 'copy-trigger', data: { :'clipboard-target' => 'input-to-copy' } %>
+    <% end %>
   </p>
 </div>
 

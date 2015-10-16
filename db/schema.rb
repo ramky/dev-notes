@@ -19,10 +19,11 @@ ActiveRecord::Schema.define(version: 20151009162541) do
   create_table "notes", force: :cascade do |t|
     t.string   "title"
     t.text     "text"
+    t.string   "encrypted_text"
     t.integer  "type_id"
     t.integer  "topic_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "topics", force: :cascade do |t|
@@ -33,9 +34,8 @@ ActiveRecord::Schema.define(version: 20151009162541) do
   end
 
   create_table "types", force: :cascade do |t|
-    t.string   "code"
+    t.string   "title"
     t.string   "additional1"
-    t.string   "additional2"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

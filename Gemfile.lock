@@ -66,6 +66,7 @@ GEM
     elasticsearch-transport (1.0.13)
       faraday
       multi_json
+    encrypted_strings (0.3.3)
     erubis (2.7.0)
     execjs (2.6.0)
     faraday (0.9.2)
@@ -73,6 +74,7 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.2)
+    hirb (0.7.3)
     i18n (0.7.0)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
@@ -191,6 +193,8 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   elasticsearch-model
   elasticsearch-rails
+  encrypted_strings
+  hirb
   jbuilder (~> 2.0)
   jquery-rails
   less-rails

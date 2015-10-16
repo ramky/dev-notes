@@ -16,9 +16,11 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'time_ago_in_words'
 gem 'redcarpet'
+gem 'encrypted_strings'
 
 group :development, :test do
   gem 'pry-byebug'
+  gem 'hirb'
 end
 
 group :development do

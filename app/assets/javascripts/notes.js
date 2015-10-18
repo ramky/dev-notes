@@ -1,14 +1,16 @@
-$( window).load(function(){
-  //copyToClipboard();
-});
-
-$(function() {
+var ready;
+ready = function(){
   togglePassword();
 
   $("#note_type_id").change(function(){
     togglePassword();
   });
-});
+
+  hljs.initHighlightingOnLoad();
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
 
 function togglePassword(){
   if ($("#note_type_id option:selected").text() == "Password"){
@@ -32,5 +34,7 @@ function copyToClipboard(){
         });
       });
     });
+
+
   })();
 }

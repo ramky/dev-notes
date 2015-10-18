@@ -1,12 +1,16 @@
 <h1 class="heading"><%= @note.title %></h1>
-<div class="jumbotron masthead">
-  <p>
-    <%= markdown(@note.text) %>
+<div id="note_text">
+  <div>
     <% if @note.password? %>
+      <%= @note.text %> /
       <input type="hidden" id="input-to-copy" value="<%= @note.decrypted_text %>" />
-      <%= link_to 'Copy to Clipboard', '#', onClick: "copyToClipboard()", id: 'copy-trigger', data: { :'clipboard-target' => 'input-to-copy' } %>
+      <%= link_to 'Copy Password to Clipboard', '#', onClick: "copyToClipboard()", id: 'copy-trigger', data: { :'clipboard-target' => 'input-to-copy' } %>
+    <% elsif @note.markdown? %>
+      <%= markdown(@note.text) %>
+    <% else %>
+      <%= raw @note.text %>
     <% end %>
-  </p>
+  </div>
 </div>
 
 <%= render 'shared/notes_footer' %>

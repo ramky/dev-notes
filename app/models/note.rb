@@ -10,7 +10,7 @@ class Note < ActiveRecord::Base
   validates_presence_of :title, :text, :topic, :type
 
   before_save do
-    self.encrypted_text = encrypted_text.encrypt(:symmetric, :password => SECRET_KEY) unless encrypted_text.nil?
+    self.encrypted_text = encrypted_text.encrypt(:symmetric, :password => SECRET_KEY) unless encrypted_text.blank?
   end
 
   def type_name
@@ -19,6 +19,10 @@ class Note < ActiveRecord::Base
 
   def password?
     type.title =~ /password/i
+  end
+
+  def markdown?
+    type.title =~ /markdown/i
   end
 
   def decrypted_text

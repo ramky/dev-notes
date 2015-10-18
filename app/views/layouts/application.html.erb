@@ -16,15 +16,18 @@
     <% end %>
 
     <div id="user-widget">
+      <div id="user-info">
       <% if current_account %>
         Welcome <strong><%= current_account.name %></strong>!
-        <%= link_to "Sign out", sign_out_path, id: "sign_out" %>
+        <%= link_to "Sign out", sign_out_path %>
       <% else %>
         <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
       <% end %>
+      </div>
     </div>
 
     <%= yield %>
+
   </div>
 
 </body>

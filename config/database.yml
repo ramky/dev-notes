@@ -14,5 +14,5 @@ test:
 production:
   <<: *default
   database: dev-notes_production
-  username: dev-notes
+  username: dev_notes
   password: <%= ENV['DEV-NOTES_DATABASE_PASSWORD'] %>

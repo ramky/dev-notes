@@ -2,6 +2,7 @@ class Topic < ActiveRecord::Base
   include ActionView::Helpers::DateHelper
   include Model::Common
   has_many :notes
+  belongs_to :account
 
   validates_presence_of :name
 

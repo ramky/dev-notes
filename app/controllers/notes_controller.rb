@@ -65,7 +65,7 @@ class NotesController < ApplicationController
     end
 
     def set_topic
-      @topic = Topic.where("topic_id = ? and account_id = ?", params[:topic_id], session[:account_id])
+      @topic = Topic.where("id = ? and account_id = ?", params[:topic_id], session[:account_id]).first
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

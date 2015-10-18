@@ -6,6 +6,7 @@ class Topic < ActiveRecord::Base
   validates_presence_of :name
 
   default_scope -> { order("updated_at desc")}
+  scope :all_for_account, -> (account_id) { where("account_id = ?", account_id)}
 
   def notes_count
     notes.count

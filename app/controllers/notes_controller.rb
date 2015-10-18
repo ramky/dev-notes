@@ -1,6 +1,8 @@
 class NotesController < ApplicationController
   before_action :set_topic_note, only: [:show, :edit, :update, :destroy]
 
+  before_filter :require_user
+
   # GET /notes
   def index
     set_topic
@@ -63,7 +65,7 @@ class NotesController < ApplicationController
     end
 
     def set_topic
-      @topic = Topic.find(params[:topic_id])
+      @topic = Topic.where("topic_id = ? and account_id = ?", params[:topic_id], session[:account_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

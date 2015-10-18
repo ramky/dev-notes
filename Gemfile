@@ -16,6 +16,8 @@ gem 'twitter-bootstrap-rails'
 gem 'time_ago_in_words'
 gem 'redcarpet'
 gem 'encrypted_strings'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'pry-byebug'
@@ -25,5 +27,6 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'better_errors'
 end
 

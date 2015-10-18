@@ -1,9 +1,11 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
+  before_filter :require_user
+
   # GET /topics
   def index
-    @topics = Topic.all
+    @topics = Topic.all_for_account(session[:account_id])
   end
 
   # GET /topics/1
@@ -23,6 +25,7 @@ class TopicsController < ApplicationController
   # POST /topics
   def create
     @topic = Topic.new(topic_params)
+    set_account
 
     respond_to do |format|
       if @topic.save
@@ -36,6 +39,7 @@ class TopicsController < ApplicationController
   # PATCH/PUT /topics/1
   def update
     respond_to do |format|
+      set_account
       if @topic.update(topic_params)
         format.html { redirect_to edit_topic_path(@topic), notice: 'Topic was successfully updated.' }
       else
@@ -53,7 +57,10 @@ class TopicsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def set_account
+      @topic.account_id = session[:account_id]
+    end
+
     def set_topic
       @topic = Topic.find(params[:id])
     end

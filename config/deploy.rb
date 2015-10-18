@@ -9,6 +9,7 @@ set :linked_dirs, %w(tmp/pids)
 set :rbenv_type, :system
 set :rbenv_ruby, File.read('.ruby-version').strip
 set :rbenv_map_bins, %w[rake gem bundle ruby rails]
+set :linked_files, %w{.rbenv-vars}
 
 namespace :deploy do
   desc 'Restart application'

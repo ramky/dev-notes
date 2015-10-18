@@ -1,5 +1,5 @@
 <h1 class="heading"><%= @note.title %></h1>
-<div id="note">
+<div id="note_text">
   <div>
     <% if @note.password? %>
       <%= @note.text %> /
@@ -7,6 +7,12 @@
       <%= link_to 'Copy Password to Clipboard', '#', onClick: "copyToClipboard()", id: 'copy-trigger', data: { :'clipboard-target' => 'input-to-copy' } %>
     <% elsif @note.markdown? %>
       <%= markdown(@note.text) %>
+    <% elsif @note.vim_note? %>
+      <% @note.vim_notes.each do |vim_note| %>
+        <div class="with_spaces">
+          <kbd class="dark"><%= vim_note %></kbd>
+        </div>
+      <% end %>
     <% else %>
       <%= raw @note.text %>
     <% end %>

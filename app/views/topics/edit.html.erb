@@ -6,7 +6,7 @@
 
 <% @notes.each do |note| %>
   <ul class="topic inline">
-    <li class="big_list"><%= link_to note.title, topic_note_path(@topic, note) %></li>
+    <li class="big_list"><%= link_to short_title(note.title), topic_note_path(@topic, note) %></li>
     <li class="big_list"><%= note.last_updated %></li>
     <li class="big_list"><%= note.type_name %></li>
     <li>

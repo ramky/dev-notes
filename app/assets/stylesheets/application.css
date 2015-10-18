@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require highlight/tomorrow-night-bright
+ *= require keys
  */
 
 html, body {

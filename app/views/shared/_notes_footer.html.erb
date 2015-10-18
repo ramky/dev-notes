@@ -1,7 +1,7 @@
 <footer>
   <%= link_to 'New Note', new_topic_note_path(@topic) %> |
   <%= link_to 'Edit Topic', edit_topic_path(@topic) %> |
-  <% if @note %>
+  <% if @note && !@note.new_record? %>
     <%= link_to 'Edit Note', edit_topic_note_path(@topic, @note) %> |
   <% end %>
   <%= link_to 'Home', root_path %>

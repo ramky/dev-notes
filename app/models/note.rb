@@ -17,12 +17,20 @@ class Note < ActiveRecord::Base
     type.title
   end
 
+  def vim_note?
+    type.title =~ /vim/i
+  end
+
   def password?
     type.title =~ /password/i
   end
 
   def markdown?
     type.title =~ /markdown/i
+  end
+
+  def vim_notes
+    text.split("\r\n")
   end
 
   def decrypted_text

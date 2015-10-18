@@ -18,6 +18,10 @@ gem 'redcarpet'
 gem 'encrypted_strings'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'capistrano', '~> 3.0'
+gem 'capistrano-rbenv'
+gem 'capistrano-rails'
+gem 'capistrano-bundler'
 
 group :development, :test do
   gem 'pry-byebug'

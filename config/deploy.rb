@@ -13,16 +13,16 @@ set :rbenv_map_bins, %w[rake gem bundle ruby rails]
 namespace :deploy do
   desc 'Restart application'
   task :restart do
-  | on roles(:app), in: :sequence, wait: 5 do
-  | | execute :touch, release_path.join('tmp/restart.txt')
-  | end
+    on roles(:app), in: :sequence, wait: 5 do
+      execute :touch, release_path.join('tmp/restart.txt')
+    end
   end
 
   after :publishing, :restart
   after :updated, :compile_assets
 
   after :restart, :clear_cache do
-  | on roles(:web), in: :groups, limit: 3, wait: 10 do
-  | end
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+    end
   end
 end

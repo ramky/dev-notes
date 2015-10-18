@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <% flash.each do |key, value| %>
-      <div class="center fade_in <%= flash_class(key) %>">
+      <div class="center auto_close fade_in <%= flash_class(key) %>">
         <button class="close" data-dismiss="alert">×</button>
         <%= value %>
       </div>

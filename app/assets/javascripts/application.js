@@ -15,3 +15,11 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= require highlight.pack
+
+$(function(){
+    window.setTimeout(removeAlert,3000);
+});
+
+function removeAlert(){
+    $('.auto_close').fadeOut();
+}

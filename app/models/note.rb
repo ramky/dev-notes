@@ -13,6 +13,8 @@ class Note < ActiveRecord::Base
     self.encrypted_text = encrypted_text.encrypt(:symmetric, :password => SECRET_KEY) unless encrypted_text.blank?
   end
 
+  default_scope -> { order("updated_at desc")}
+
   def type_name
     type.title
   end

@@ -5,6 +5,7 @@ class Topic < ActiveRecord::Base
 
   validates_presence_of :name
 
+  default_scope -> { order("updated_at desc")}
 
   def notes_count
     notes.count

@@ -22,11 +22,11 @@ gem 'capistrano', '~> 3.0'
 gem 'capistrano-rbenv'
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
+gem 'pry-byebug'
+gem 'hirb'
 
-group :development, :test do
-  gem 'pry-byebug'
-  gem 'hirb'
-end
+#group :development, :test do
+#end
 
 group :development do
   gem 'web-console', '~> 2.0'

@@ -23,9 +23,9 @@ function togglePassword(){
 
 function copyToClipboard(){
   (function(){
-    $.getScript('//cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.2.0/ZeroClipboard.min.js', function(data, textStatus) {
+    $.getScript('https://cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.2.0/ZeroClipboard.min.js', function(data, textStatus) {
       var link = $("#copy-trigger");
-      ZeroClipboard.config( { swfPath: "//cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.2.0/ZeroClipboard.swf" } );
+      ZeroClipboard.config( { swfPath: "https://cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.2.0/ZeroClipboard.swf" } );
       link.client = new ZeroClipboard( link );
       link.client.on('ready', function( readyEvent ) {
         link.client.on( 'aftercopy', function(e) {

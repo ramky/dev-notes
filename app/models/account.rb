@@ -7,6 +7,11 @@ class Account < ActiveRecord::Base
       user.provider = auth.provider
       user.uid      = auth.uid
       user.name     = auth.info.name
+      # Don't want everyone in the world to use my app
+      # Control access through the database
+      user_name = user.name.try(:downcase) || ''
+      return if AuthenWhitelist.not_authorized?(user_name)
+
       user.save
     end
   end

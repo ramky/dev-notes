@@ -1,6 +1,6 @@
 var ready;
 ready = function(){
-  handleTypeChanges();
+  //handleTypeChanges();
 
   $("#note_type_id").change(function(){
     handleTypeChanges();

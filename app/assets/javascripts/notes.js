@@ -1,9 +1,9 @@
 var ready;
 ready = function(){
-  togglePassword();
+  handleTypeChanges();
 
   $("#note_type_id").change(function(){
-    togglePassword();
+    handleTypeChanges();
   });
 
   hljs.initHighlightingOnLoad();
@@ -12,11 +12,18 @@ ready = function(){
 $(document).ready(ready);
 $(document).on('page:load', ready);
 
-function togglePassword(){
-  if ($("#note_type_id option:selected").text() == "Password"){
+function handleTypeChanges(){
+  if ($("#note_type_id option:selected").text() == "Dev Notes"){
+    $("#note_text").val('<pre><code class=""></code></pre>');
+    $(".password").hide();
+  }
+  else if ($("#note_type_id option:selected").text() == "Password"){
+    $("#note_text").val('');
+    $("#note_encrypted_text").val('');
     $(".password").show();
   }
   else{
+    $("#note_text").val('');
     $(".password").hide();
   }
 }

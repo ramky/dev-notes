@@ -1,6 +1,10 @@
 var ready;
 ready = function(){
-  //handleTypeChanges();
+  // Just check for password and initialize highlight on page load
+  // Rest should be only when type changes
+  if ($("#note_type_id option:selected").text() != "Password"){
+    $(".password").hide();
+  }
 
   $("#note_type_id").change(function(){
     handleTypeChanges();

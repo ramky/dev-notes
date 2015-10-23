@@ -31,7 +31,11 @@ class Note < ActiveRecord::Base
     type.title =~ /markdown/i
   end
 
-  def vim_notes
+  def quote?
+    type.title =~ /quote/i
+  end
+
+  def notes_by_line
     text.split("\r\n")
   end
 

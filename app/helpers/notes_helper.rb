@@ -6,4 +6,8 @@ module NotesHelper
       title
     end
   end
+
+  def split_quote(quote)
+    quote.split(';;')
+  end
 end

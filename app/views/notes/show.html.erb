@@ -8,10 +8,18 @@
     <% elsif @note.markdown? %>
       <%= markdown(@note.text) %>
     <% elsif @note.vim_note? %>
-      <% @note.vim_notes.each do |vim_note| %>
+      <% @note.notes_by_line.each do |vim_note| %>
         <div class="with_spaces">
           <kbd class="dark"><%= vim_note %></kbd>
         </div>
+      <% end %>
+    <% elsif @note.quote? %>
+      <% @note.notes_by_line.each do |quote_note| %>
+        <% (quote, author) = split_quote(quote_note) %>
+        <blockquote>
+          <%= quote %>
+          <cite><%= author %></cite>
+        </blockquote>
       <% end %>
     <% else %>
       <%= raw @note.text %>

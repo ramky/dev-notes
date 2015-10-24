@@ -16,7 +16,7 @@
     <% elsif @note.quote? %>
       <% @note.notes_by_line.each do |quote_note| %>
         <% (quote, author) = split_quote(quote_note) %>
-        <blockquote>
+        <blockquote class="quote">
           <%= quote %>
           <cite><%= author %></cite>
         </blockquote>

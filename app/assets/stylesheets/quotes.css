@@ -1,4 +1,4 @@
-blockquote {
+blockquote.quote {
     font-family: Georgia, serif;
     font-size: 18px;
     font-style: italic;
@@ -11,7 +11,7 @@ blockquote {
     border-width: 0;
 }
 
-blockquote:before {
+blockquote.quote:before {
     display: block;
     content: "\201C";
     font-size: 80px;
@@ -21,13 +21,13 @@ blockquote:before {
     color: #7a7a7a;
 }
 
-blockquote cite {
+blockquote.quote cite {
     color: #999999;
     font-size: 14px;
     display: block;
     margin-top: 5px;
 }
 
-blockquote cite:before {
+blockquote.quote cite:before {
     content: "\2014 \2009";
 }

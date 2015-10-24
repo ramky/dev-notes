@@ -20,19 +20,19 @@ class Note < ActiveRecord::Base
   end
 
   def vim_note?
-    type.title =~ /vim/i
+    type_name =~ /vim/i
   end
 
   def password?
-    type.title =~ /password/i
+    type_name =~ /password/i
   end
 
   def markdown?
-    type.title =~ /markdown/i
+    type_name =~ /markdown/i
   end
 
   def quote?
-    type.title =~ /quote/i
+    type_name =~ /quote/i
   end
 
   def notes_by_line

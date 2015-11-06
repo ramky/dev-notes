@@ -24,6 +24,8 @@ gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'pry-byebug'
 gem 'hirb'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 #group :development, :test do
 #end

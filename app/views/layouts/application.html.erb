@@ -27,6 +27,24 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col-md-6 col-centered">
+        <div id="custom-search-input">
+          <div class="input-group col-md-12">
+            <form action="/search" accept-charset="UTF-8" method="get">
+              <input name="utf8" type="hidden" value="&#x2713;" />
+              <%= text_field_tag :q, params[:q], class: 'form-control input-lg', placeholder: 'Search for notes here' %>
+              <span class="input-group-btn">
+                <button class="btn btn-info btn-lg" type="button" name="">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <%= yield %>
 
   </div>

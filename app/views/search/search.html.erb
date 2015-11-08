@@ -1,0 +1,13 @@
+<h2 class="heading">Search Result</h2>
+
+<% @notes.each do |note| %>
+  <ul class="topic inline">
+    <li class="big_list">
+      <%= link_to note.title, topic_note_path(note.topic_id, note._id) %>
+    </li>
+  </ul>
+<% end %>
+
+<footer>
+  <%= link_to 'Home', root_path %>
+</footer>

@@ -1,4 +1,14 @@
 class Note < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
+  settings index: { number_of_shards: 1 } do
+    mappings dynamic: 'false' do
+      indexes :title, analyzer: 'english', index_options: 'offsets'
+      indexes :text, analyzer: 'english'
+    end
+  end
+
   SECRET_KEY = ENV['SECRET_KEY']
 
   include Model::Common
@@ -8,6 +18,22 @@ class Note < ActiveRecord::Base
   accepts_nested_attributes_for :topic
 
   validates_presence_of :title, :text, :topic, :type
+
+  # ^10 boosts by 10 the score of hits when the search term is matched in the title
+  def self.search(query)
+    __elasticsearch__.search(
+        {
+            query: {
+                multi_match: {
+                    query: query,
+                    fields: ['title^10', 'text']
+                }
+            },
+        }
+    )
+  end
+
+
 
   before_save do
     self.encrypted_text = encrypted_text.encrypt(:symmetric, :password => SECRET_KEY) unless encrypted_text.blank?
@@ -43,3 +69,14 @@ class Note < ActiveRecord::Base
     encrypted_text.decrypt(:symmetric, :password => SECRET_KEY)
   end
 end
+
+# Delete the previous articles index in Elasticsearch
+Note.__elasticsearch__.client.indices.delete index: Note.index_name rescue nil
+
+# Create the new index with the new mapping
+Note.__elasticsearch__.client.indices.create \
+  index: Note.index_name,
+  body: { settings: Note.settings.to_hash, mappings: Note.mappings.to_hash }
+
+
+Note.import # for auto sync model with elastic search

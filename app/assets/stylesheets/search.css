@@ -26,8 +26,8 @@
     border-left: solid 1px #ccc;
 }
 
-#custom-search-input .glyphicon-search{
-    font-size: 23px;
+#custom-search-input{
+    font-size:23px;
 }
 
 .col-centered{

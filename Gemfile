@@ -26,6 +26,7 @@ gem 'pry-byebug'
 gem 'hirb'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'kaminari'
 
 #group :development, :test do
 #end

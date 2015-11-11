@@ -5,7 +5,7 @@ class TopicsController < ApplicationController
 
   # GET /topics
   def index
-    @topics = Topic.all_for_account(session[:account_id])
+    @topics = Topic.all_for_account(session[:account_id]).page(params[:page]).per(ENTRIES_PER_PAGE)
   end
 
   # GET /topics/1
@@ -19,7 +19,7 @@ class TopicsController < ApplicationController
 
   # GET /topics/1/edit
   def edit
-    @notes = @topic.notes
+    @notes = @topic.notes.page(params[:page]).per(ENTRIES_PER_PAGE)
   end
 
   # POST /topics

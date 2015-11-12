@@ -2,7 +2,7 @@
 
 <% @notes.each do |note| %>
   <ul class="topic inline">
-    <li class="big_list">
+    <li>
       <%= link_to note.title, topic_note_path(note.topic_id, note._id) %>
     </li>
   </ul>

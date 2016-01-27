@@ -28,6 +28,7 @@ gem 'kaminari'
 
 group :development, :test do
   gem 'pry'
+  gem 'spring-commands-rspec'
 end
 
 group :test do

@@ -1,5 +1,5 @@
 class Account < ActiveRecord::Base
-  has_many :notes
+  has_many :topics
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

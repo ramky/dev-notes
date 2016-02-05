@@ -1,16 +1,8 @@
 class Note < ActiveRecord::Base
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
-
-  settings index: { number_of_shards: 1 } do
-    mappings dynamic: 'false' do
-      indexes :title, analyzer: 'english', index_options: 'offsets'
-      indexes :text, analyzer: 'english'
-    end
-  end
-
   SECRET_KEY = ENV['SECRET_KEY']
 
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   include Model::Common
 
   belongs_to :topic
@@ -19,7 +11,15 @@ class Note < ActiveRecord::Base
 
   validates_presence_of :title, :text, :topic, :type
 
-  # ^10 boosts by 10 the score of hits when the search term is matched in the title
+  settings index: { number_of_shards: 1 } do
+    mappings dynamic: 'false' do
+      indexes :title, analyzer: 'english', index_options: 'offsets'
+      indexes :text, analyzer: 'english'
+    end
+  end
+
+  # ^10 boosts by 10 the score of hits when the search term is
+  # matched in the title
   def self.search(query)
     __elasticsearch__.search(
         {
@@ -33,11 +33,12 @@ class Note < ActiveRecord::Base
     )
   end
 
-
-
   before_save do
-    self.encrypted_text = encrypted_text.encrypt(:symmetric, :password => SECRET_KEY) unless encrypted_text.blank?
-  end
+    self.encrypted_text = encrypted_text.encrypt(:symmetric, \
+                                                 :password => \
+                                                 SECRET_KEY) \
+                                                 unless encrypted_text.blank?
+  end # before save
 
   default_scope -> { order("updated_at desc")}
 
@@ -68,7 +69,7 @@ class Note < ActiveRecord::Base
   def decrypted_text
     encrypted_text.decrypt(:symmetric, :password => SECRET_KEY)
   end
-end
+end # class
 
 # Delete the previous articles index in Elasticsearch
 Note.__elasticsearch__.client.indices.delete index: Note.index_name rescue nil

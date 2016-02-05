@@ -17,4 +17,8 @@ FactoryGirl.define do
   factory :type do
     title             'Dev Notes'
   end
+
+  factory :authen_whitelist do
+    name              'Ram Iyer'
+  end
 end

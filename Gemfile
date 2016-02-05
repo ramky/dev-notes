@@ -25,6 +25,7 @@ gem 'hirb'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'kaminari'
+gem 'faker'
 
 group :development, :test do
   gem 'pry'

@@ -7,8 +7,7 @@ RSpec.describe Topic, type: :model do
 
   it 'should order by name' do
     topic1 = create(:topic)
-    topic2 = create(:topic, name: 'Rails Setup',
-                    description: 'All things Rails')
+    topic2 = create(:topic, name: 'Rails Setup')
 
     expect(Topic.first.name).to eq 'Rails Setup'
   end
@@ -17,12 +16,10 @@ RSpec.describe Topic, type: :model do
      it 'returns topics for account' do
        ram      = create(:account)
        topic1   = create(:topic, account_id: ram.id)
-       topic2   = create(:topic, name: 'Rails Setup',
-                         description: 'All things Rails', account_id: ram.id)
+       topic2   = create(:topic, name: 'Rails Setup', account_id: ram.id)
 
        john     = create(:account, name: 'John Doe')
-       topic3   = create(:topic, name: 'Elixir Setup',
-                         description: 'All things Elixir', account_id: john.id)
+       topic3   = create(:topic, name: 'Elixir Setup', account_id:  john.id)
 
        expect(Topic.all_for_account(ram.id).count).to eq 2
        expect(Topic.all_for_account(ram.id).first.name).to eq 'Rails Setup'

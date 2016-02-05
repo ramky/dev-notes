@@ -6,7 +6,7 @@ FactoryGirl.define do
 
   factory :topic do
     name               'VIM Setup'
-    description        'All things about VIM Setup'
+    description        Faker::Lorem.sentences(1)
   end
 
   factory :note do

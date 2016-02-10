@@ -5,13 +5,13 @@ FactoryGirl.define do
   end
 
   factory :topic do
-    name               'VIM Setup'
-    description        Faker::Lorem.sentences(1)
+    name               Faker::Lorem.words(4).join(' ')
+    description        Faker::Lorem.sentences(1).join(' ')
   end
 
   factory :note do
-    title             Faker::Lorem.words(4)
-    text              Faker::Lorem.sentences(1)
+    title             Faker::Lorem.words(4).join(' ')
+    text              Faker::Lorem.sentences(1).join(' ')
   end
 
   factory :type do

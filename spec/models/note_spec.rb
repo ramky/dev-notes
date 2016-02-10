@@ -7,6 +7,7 @@ RSpec.describe Note, type: :model do
   it { should validate_presence_of(:text)  }
   it { should validate_presence_of(:topic)  }
   it { should validate_presence_of(:type)  }
+  it { should accept_nested_attributes_for(:topic)  }
 
   describe ':before_save callback' do
     it 'should update the encrypted_text for passwords' do
@@ -27,7 +28,4 @@ RSpec.describe Note, type: :model do
       expect(note.encrypted_text).to eq encrypted_text
     end
   end
-
-  it 'has nested attributes for topic'
-  it 'integrates with elastic search'
 end

@@ -71,7 +71,8 @@ RSpec.describe TopicsController, type: :controller do
           set_current_account(ram)
           topic       = create(:topic)
 
-          put :update, id: topic.id, topic: { name: name, description: description }
+          put :update, id: topic.id, topic: { name: name,
+                                              description: description }
 
           expect(assigns(:topic).name).to eq name
           expect(assigns(:topic).description).to eq description

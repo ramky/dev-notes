@@ -5,7 +5,9 @@ class TopicsController < ApplicationController
 
   # GET /topics
   def index
-    @topics = Topic.all_for_account(session[:account_id]).page(params[:page]).per(ENTRIES_PER_PAGE)
+    @topics = Topic.all_for_account(
+      session[:account_id]).
+      page(params[:page]).per(ENTRIES_PER_PAGE)
   end
 
   # GET /topics/1
@@ -29,7 +31,8 @@ class TopicsController < ApplicationController
 
     respond_to do |format|
       if @topic.save
-        format.html { redirect_to root_path, notice: 'Topic was successfully created.' }
+        format.html { redirect_to root_path,
+                      notice: 'Topic was successfully created.' }
       else
         format.html { render :new }
       end
@@ -41,7 +44,8 @@ class TopicsController < ApplicationController
     respond_to do |format|
       set_account
       if @topic.update(topic_params)
-        format.html { redirect_to edit_topic_path(@topic), notice: 'Topic was successfully updated.' }
+        format.html { redirect_to edit_topic_path(@topic),
+                      notice: 'Topic was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -52,7 +56,8 @@ class TopicsController < ApplicationController
   def destroy
     @topic.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Topic was successfully destroyed.' }
+      format.html { redirect_to root_path,
+                    notice: 'Topic was successfully destroyed.' }
     end
   end
 
@@ -65,8 +70,8 @@ class TopicsController < ApplicationController
       @topic = Topic.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
       params.require(:topic).permit(:name, :description)
     end
 end
+

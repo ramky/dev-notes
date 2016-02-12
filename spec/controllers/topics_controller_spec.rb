@@ -106,9 +106,7 @@ RSpec.describe TopicsController, type: :controller do
         set_current_account(ram)
         topic       = create(:topic)
 
-        delete :destroy, id: topic.id
-
-        expect(Topic.count).to eq 0
+        expect{ delete :destroy, id: topic.id }.to change(Topic, :count)
       end
     end
 

@@ -102,6 +102,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  config.include OmniAuthTestHelper, type: :feature
   config.include FactoryGirl::Syntax::Methods
 end
 

@@ -19,6 +19,6 @@ FactoryGirl.define do
   end
 
   factory :authen_whitelist do
-    name              'Ram Iyer'
+    name              'ram iyer'
   end
 end

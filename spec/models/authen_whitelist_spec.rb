@@ -19,7 +19,7 @@ RSpec.describe AuthenWhitelist, type: :model do
       end
       it 'returns false if username exists in table' do
         create(:authen_whitelist)
-        expect(AuthenWhitelist.not_authorized?('Ram Iyer')).to \
+        expect(AuthenWhitelist.not_authorized?('ram iyer')).to \
           be_falsey
       end
     end

@@ -21,7 +21,11 @@ class TopicsController < ApplicationController
 
   # GET /topics/1/edit
   def edit
-    @notes = @topic.notes.page(params[:page]).per(ENTRIES_PER_PAGE)
+    #@notes = @topic.notes.page(params[:page]).per(ENTRIES_PER_PAGE)
+    @notes = Topic.
+      notes_for_topic(@topic.id).
+      page(params[:page]).
+      per(ENTRIES_PER_PAGE)
   end
 
   # POST /topics

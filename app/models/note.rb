@@ -5,7 +5,7 @@ class Note < ActiveRecord::Base
   include Elasticsearch::Model::Callbacks
   include Model::Common
 
-  belongs_to :topic
+  belongs_to :topic, counter_cache: true
   belongs_to :type
   accepts_nested_attributes_for :topic
 

@@ -9,8 +9,4 @@ class Topic < ActiveRecord::Base
   default_scope -> { order("name asc")}
   scope :all_for_account, -> (account_id) \
   { where("account_id = ?", account_id)}
-
-  def notes_count
-    notes.count
-  end
 end

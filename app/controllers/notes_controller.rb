@@ -30,7 +30,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to edit_topic_path(@topic), notice: 'Note was successfully created.' }
+        format.html { redirect_to edit_topic_path(@note.topic), notice: 'Note was successfully created.' }
       else
         format.html { render :new }
       end
@@ -41,7 +41,7 @@ class NotesController < ApplicationController
   def update
     respond_to do |format|
       if @note.update(note_params)
-        format.html { redirect_to edit_topic_path(@topic), notice: 'Note was successfully updated.' }
+        format.html { redirect_to edit_topic_path(@note.topic), notice: 'Note was successfully updated.' }
       else
         format.html { render :edit }
       end

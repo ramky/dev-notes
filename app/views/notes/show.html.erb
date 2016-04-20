@@ -3,8 +3,10 @@
   <div>
     <% if @note.password? %>
       <%= @note.text %> /
-      <input type="hidden" id="input-to-copy" value="<%= @note.decrypted_text %>" />
-      <%= link_to 'Copy Password to Clipboard', '#', onClick: "copyToClipboard()", id: 'copy-trigger', data: { :'clipboard-target' => 'input-to-copy' } %>
+      <% if @note.password? %>
+        <%= link_to 'Copy Password to Clipboard', '#', data: { 'clipboard-target' => 'input-to-copy' }, id: 'copy-trigger' %>
+        <input type="hidden" id="input-to-copy" value="<%= @note.decrypted_text %>" />
+      <% end %>
     <% elsif @note.markdown? %>
       <%= markdown(@note.text) %>
     <% elsif @note.vim_note? %>

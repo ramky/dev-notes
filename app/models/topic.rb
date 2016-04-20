@@ -10,5 +10,10 @@ class Topic < ActiveRecord::Base
   scope :all_for_account, -> (account_id) \
     { where("account_id = ?", account_id)}
   scope :notes_for_topic, -> (topic_id) \
-    { Topic.joins(notes: :type).where("topics.id = ?", topic_id).select("notes.*, types.title as type_name") }
+    {
+      Topic.joins(notes: :type).
+        where("topics.id = ?", topic_id).
+        select("notes.*, types.title as type_name").
+        order("notes.updated_at desc")
+    }
 end

@@ -67,7 +67,11 @@ class Note < ActiveRecord::Base
   end
 
   def decrypted_text
-    encrypted_text.decrypt(:symmetric, :password => SECRET_KEY)
+    if new_record?
+      ''
+    else
+      encrypted_text.decrypt(:symmetric, :password => SECRET_KEY)
+    end
   end
 end # class
 

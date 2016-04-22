@@ -28,7 +28,9 @@
       <%= f.label :password %>
       <%= f.password_field :encrypted_text %>
       <%= f.hidden_field :decrypted_text %>
-      <%= link_to 'Copy Previous Password', "javascript:function()", id: 'copy_previous_password' %>
+      <% unless @note.new_record? %>
+        <%= link_to 'Copy Previous Password', "javascript:function()", id: 'copy_previous_password' %>
+      <% end %>
     </div>
     <div class="actions">
       <%= f.submit %>

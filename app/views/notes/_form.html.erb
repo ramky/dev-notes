@@ -27,7 +27,7 @@
     <div class="field password">
       <%= f.label :password %>
       <%= f.password_field :encrypted_text %>
-      <% if @note.password? and !@note.new_record? %>
+      <% if !@note.new_record? and @note.password? %>
         <%= f.hidden_field :decrypted_text %>
         <%= link_to 'Copy Previous Password', "javascript:function()", id: 'copy_previous_password' %>
       <% end %>

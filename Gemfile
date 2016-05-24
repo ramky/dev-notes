@@ -26,6 +26,7 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'kaminari'
 gem 'faker'
+gem 'rubocop'
 
 group :development, :test do
   gem 'pry'

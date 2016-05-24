@@ -7,8 +7,8 @@
 <% @notes.each do |note| %>
   <ul class="topic inline">
     <li class="big_list"><%= link_to short_title(note.title), topic_note_path(@topic, note) %></li>
-    <li class="medium_list"><%= note.last_updated %></li>
-    <li class="medium_list"><%= note.type_name %></li>
+    <li class="small_list"><%= note.last_updated %></li>
+    <li class="small_list"><%= note.type_name %></li>
     <li>
       <%= link_to edit_topic_note_path(@topic, note), title: 'Edit Topic' do %>
         <i class="fa fa-pencil-square-o"></i>

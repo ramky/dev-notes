@@ -2,9 +2,9 @@
 
 <% @topics.each do |topic| %>
   <ul class="topic inline">
-    <li class="big_list"><%= link_to topic.name, edit_topic_path(topic) %></li>
-    <li class="big_list"><%= topic.notes_count %> Notes</li>
-    <li class="big_list"><%= topic.last_updated %></li>
+    <li class="medium_list"><%= link_to topic.name, edit_topic_path(topic) %></li>
+    <li class="medium_list"><%= topic.notes_count %> Notes</li>
+    <li class="medium_list"><%= topic.last_updated %></li>
     <li>
       <%= link_to topic, title: 'Show Topic' do %>
         <i class="fa fa-list-alt"></i>

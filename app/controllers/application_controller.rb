@@ -4,7 +4,10 @@ class ApplicationController < ActionController::Base
   private
 
   def current_account
-    @current_account ||= Account.find(session[:account_id]) if session[:account_id]
+    # @current_account ||= Account.find(session[:account_id]) if session[:account_id]
+    account = Account.first
+    session[:account_id] = account.id
+    @current_account = account
   end
 
   def require_user

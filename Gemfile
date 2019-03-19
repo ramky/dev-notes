@@ -28,6 +28,7 @@ gem 'kaminari'
 gem 'faker'
 gem 'rubocop'
 gem 'clipboard-rails'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'pry'

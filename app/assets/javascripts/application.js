@@ -15,6 +15,7 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= require highlight.pack
+//= require clipboard
 
 $(function(){
     window.setTimeout(removeAlert,3000);

@@ -101,3 +101,16 @@ form .field, form .actions {
   border: 2px solid #c2ccff;
   padding: 20px;
 }
+
+.login_form{
+  label {
+    display: inline-block;
+    width: 140px;
+    text-align: right;
+  }
+
+  .actions {
+    margin-left: 140px;
+  }
+}
+

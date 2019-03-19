@@ -76,6 +76,7 @@ GEM
       json
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
+    clipboard-rails (1.7.1)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -321,6 +322,7 @@ DEPENDENCIES
   capistrano-rbenv
   capybara
   capybara-webkit
+  clipboard-rails
   coffee-rails (~> 4.1.0)
   database_cleaner
   elasticsearch-model

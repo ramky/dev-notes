@@ -1,8 +1,4 @@
-config = {
-    host: "http://localhost:9200/",
-    transport_options: {
-        request: { timeout: 5 }
-    },
-}
-
-Elasticsearch::Model.client = Elasticsearch::Client.new(config)
+client = Elasticsearch::Client.new(host: 'db.ram-iyer.com', port: 80) do |f|
+  f.basic_auth(ENV['ES_USER'], ENV['ES_PASSWORD'])
+end
+Elasticsearch::Model.client = client

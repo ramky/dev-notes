@@ -13,6 +13,7 @@ test:
 
 production:
   <<: *default
+  host: db.ram-iyer.com
   database: dev-notes_production
   username: dev_notes
-  password: <%= ENV['DEV-NOTES_DATABASE_PASSWORD'] %>
+  password: <%= ENV['PROD_DB_PASSWORD'] %>

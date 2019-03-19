@@ -4,8 +4,8 @@
     <% if @note.password? %>
       <%= @note.text %> /
       <% if @note.password? %>
-        <%= link_to 'Copy Password to Clipboard', '#', data: { 'clipboard-target' => 'input-to-copy' }, id: 'copy-trigger' %>
-        <input type="hidden" id="input-to-copy" value="<%= @note.decrypted_text %>" />
+        <%= link_to 'Copy Password to Clipboard', '#', data: { 'action' => 'copy' , 'clipboard-target' => '#input-to-copy' }, id: 'copy-trigger' %>
+        <input type="text" id="input-to-copy" value="<%= @note.decrypted_text %>" />
       <% end %>
     <% elsif @note.markdown? %>
       <%= markdown(@note.text) %>

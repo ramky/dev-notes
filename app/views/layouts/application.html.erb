@@ -22,7 +22,7 @@
         Welcome <strong><%= current_account.name %></strong>!
         <%= link_to "Sign out", sign_out_path %>
       <% else %>
-        <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+        <%= link_to "Sign in", sign_in_path %>
       <% end %>
       </div>
     </div>

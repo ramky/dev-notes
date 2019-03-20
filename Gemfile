@@ -29,6 +29,7 @@ gem 'faker'
 gem 'rubocop'
 gem 'clipboard-rails'
 gem 'bcrypt'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'pry'
